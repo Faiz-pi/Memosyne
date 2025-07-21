@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+button {
+  width: 5rem;
+  height: 2rem;
+  background-color: white;
+  border: 2px solid;
+  border-radius: 0.3rem;
+  box-shadow: 0 3px 0 black;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0;
+}
+section {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 20rem;
+  gap: 1.25rem;
+  flex: 1 1 20rem;
+  border: 2px solid;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 0 black;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.close-btn {
+  width: 3rem;
+}
+@media screen and (max-width: 767px) {
+  .card {
+    flex: 1 1 100%;
+  }
+}
+.dialog-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-overlay.active {
+  display: flex;
+}
+.dialog-box {
+  background: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 0 black;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+textarea {
+  height: 5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
