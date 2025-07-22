@@ -26,7 +26,7 @@ button {
 }
 button:active {
   transform: translateY(3px);
-  box-shadow: 0 0 0;
+  box-shadow: none;
 }
 section {
   display: flex;
@@ -45,14 +45,32 @@ section {
   border: 2px solid;
   border-radius: 0.5rem;
   box-shadow: 0 5px 0 black;
+  transition: all 0.3s ease-in-out;
+}
+.card:hover{
+  box-shadow: none;
+  transform: translateY(3px);
 }
 .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.close-btn {
-  width: 3rem;
+span{
+  display: inline-flex;
+  gap: 0.75rem;
+}
+.close-btn, .edit-btn {
+  width: 2.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+svg{
+  width: 1rem;
+  height: 1.5rem;
 }
 @media screen and (max-width: 767px) {
   .card {

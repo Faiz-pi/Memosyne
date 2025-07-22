@@ -43,7 +43,14 @@ function createCard(noteObj) {
   note.innerHTML = `<div class="card" data-id="${noteObj.id}">
   <div class="card-header">
     <h2>${noteObj.title}</h2>
+    <span>
+    <button class="edit-btn">
+      <svg>
+        <use href="/public/pencil-solid.svg"></use>
+      </svg>
+    </button>
     <button class="close-btn">X</button>
+    <span>
   </div>
   <p>
   ${noteObj.description}</p>
