@@ -45,9 +45,7 @@ function createCard(noteObj) {
     <h2>${noteObj.title}</h2>
     <span>
     <button class="edit-btn">
-      <svg>
-        <use href="/public/pencil-solid.svg"></use>
-      </svg>
+    <i class="fa-solid fa-pen-to-square"></i>
     </button>
     <button class="close-btn">X</button>
     <span>
