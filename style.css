@@ -12,15 +12,15 @@ header {
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 2px solid;
+  font-size: 0.75rem;
 }
 button {
-  width: 5rem;
-  height: 2rem;
+  width: 4rem;
+  height: 1.75rem;
   background-color: white;
   border: 2px solid;
   border-radius: 0.3rem;
   box-shadow: 0 3px 0 black;
-  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -69,11 +69,6 @@ span{
   font-size: 0.8rem;
 }
 
-@media screen and (max-width: 767px) {
-  .card {
-    flex: 1 1 100%;
-  }
-}
 .dialog-overlay {
   display: none;
   position: fixed;
@@ -108,4 +103,10 @@ textarea {
   height: 5rem;
   padding: 0.5rem;
   font-size: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    flex: 1 1 100%;
+  }
 }

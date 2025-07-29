@@ -36,7 +36,6 @@ function save() {
 }
 
 function createCard(noteObj) {
-  console.log(noteObj);
   let container = document.querySelector("section");
   let note = document.createElement("div");
 
