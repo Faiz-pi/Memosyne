@@ -7,6 +7,8 @@ let cancelBtn = document.getElementById("closeDialog-btn");
 cancelBtn.addEventListener("click", () => {
   dialog.classList.remove("active");
 });
+let currentlyEditingId=null;
+console.log(currentlyEditingId);
 
 function save() {
   let inputNote = document.getElementById("input-note").value;
@@ -16,7 +18,25 @@ function save() {
     alert("Enter a Valid Note");
     return null;
   }
-
+  if (currentlyEditingId != null){
+    let notesArr = JSON.parse(localStorage.getItem("notes")) || [];
+    let note = notesArr.find(note => note.id == currentlyEditingId);
+    console.log(note)
+    note.title = inputNote;
+    note.description = inputDes;
+    let cardWithData = document.querySelector(`.card[data-id="${currentlyEditingId}"]`);
+    let h2 = cardWithData.querySelector("h2");
+    h2.textContent = note.title;
+    let p = cardWithData.querySelector("p");
+    p.textContent = note.description;
+    localStorage.setItem("notes", JSON.stringify(notesArr));
+    console.log(note);
+    currentlyEditingId = null;
+    document.getElementById("input-note").value = "";
+    document.getElementById("input-des").value = "";
+    dialog.classList.remove("active");
+    return
+  }
   const noteObj = {
     id: Date.now(),
     title: inputNote,
@@ -47,7 +67,7 @@ function createCard(noteObj) {
     <i class="fa-solid fa-pen-to-square"></i>
     </button>
     <button class="close-btn">X</button>
-    <span>
+    </span>
   </div>
   <p>
   ${noteObj.description}</p>
@@ -70,6 +90,22 @@ document.querySelector("section").addEventListener("click", (e) => {
 
       card.remove();
       checkEmptyMessage();
+    }
+  }
+  if (e.target.closest(".edit-btn")){
+    const card = e.target.closest(".card");
+    if (card){
+      const cardId = card.getAttribute("data-id");
+      console.log(cardId)
+      currentlyEditingId=cardId;
+      console.log(currentlyEditingId)
+      dialog.classList.add("active");
+      let notes = JSON.parse(localStorage.getItem("notes")) || [];
+      let noteToEdit = notes.find(note=>note.id==cardId);
+      console.log(noteToEdit)
+      document.getElementById("input-note").value = noteToEdit.title;
+      document.getElementById("input-des").value = noteToEdit.description;
+      
     }
   }
 });
