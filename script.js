@@ -2,6 +2,9 @@ const dialog = document.getElementById("dialog");
 let createBtn = document.getElementById("create-btn");
 createBtn.addEventListener("click", () => {
   dialog.classList.add("active");
+  let card_heading = document.querySelector(".dialog-box");
+  let dialogH2 = card_heading.querySelector("h2");
+  dialogH2.textContent = "Create a Note";
 });
 
 let cancelBtn = document.getElementById("closeDialog-btn");
@@ -36,6 +39,9 @@ function save() {
     document.getElementById("input-note").value = "";
     document.getElementById("input-des").value = "";
     dialog.classList.remove("active");
+    let card_heading = document.querySelector(".dialog-box");
+    let dialogH2 = card_heading.querySelector("h2");
+    dialogH2.textContent = "Create a Note";
     return
   }
   const noteObj = {
@@ -96,6 +102,9 @@ document.querySelector("section").addEventListener("click", (e) => {
   if (e.target.closest(".edit-btn")){
     const card = e.target.closest(".card");
     if (card){
+      let card_heading = document.querySelector(".dialog-box");
+      let dialogH2 = card_heading.querySelector("h2");
+      dialogH2.textContent = "Update Note";
       const cardId = card.getAttribute("data-id");
       console.log(cardId)
       currentlyEditingId=cardId;
