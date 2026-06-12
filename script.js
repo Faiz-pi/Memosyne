@@ -1,3 +1,4 @@
+const dialog = document.getElementById("dialog");
 let createBtn = document.getElementById("create-btn");
 createBtn.addEventListener("click", () => {
   dialog.classList.add("active");
